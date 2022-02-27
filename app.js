@@ -9,8 +9,10 @@ const app = new Vue ({
     },
     methods: {
         addNewTodo: function() {
-            this.todoList.push(this.todoInput)
-            this.todoInput= '';
+            if(this.todoInput !== ''){
+                this.todoList.push(this.todoInput)
+                this.todoInput= '';
+            }
         },
     
         deleteTodo: function(i){
