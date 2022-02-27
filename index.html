@@ -11,26 +11,28 @@
 </head>
 
 
-<body id="root">
+<body>
     
-    <div class="container">
+    <div id="root" class="container">
         <h1>Todo-Leaf</h1>
         <div class="input-wrapper">
-            <input type="text" placeholder="Type your Todo Here!">
-            <input type="button" value="Add new Todo">
+            <input type="text" v-model="todoInput" placeholder="Type your Todo Here!" @keyup.enter="addNewTodo()" >
+            <input type="button" value="Add a new Leaf" @click="addNewTodo">
         </div>
 
         <div class="list-wrapper">
-            <ul>
-                <li>asd</li>
-                <li>asd</li>
-                <li>asd</li>
+            <ul class="ul-wrapper">
+                <li v-for="(element, index) in todoList">
+                    {{ element }} 
+                    <span class="delete-wrapper" @click="deleteTodo(index)">
+                        <i class="fa-solid fa-recycle"></i>
+                    </span>
+                </li>
             </ul>
+
+
         </div>
     </div>
-
-
-
 
     <script src="app.js"></script>
 </body>
